@@ -11,5 +11,13 @@ export const categoryRepository = {
 
   async create(data) {
     return await Category.create(data);
+  },
+
+  async update(id, data) {
+    return await Category.update(data, { where: { id } });
+  },
+
+  async delete(id) {
+    return await Category.destroy({ where: { id } });
   }
 };

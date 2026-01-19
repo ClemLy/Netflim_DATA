@@ -5,10 +5,17 @@ import { movieController } from '../controllers/movie.controller.js';
 import { validate } from '../middlewares/validate.middleware.js';
 import { createMovieSchema } from '../validators/movie.validator.js';
 
+// Middlewares d'authentification
+import { authenticate } from '../middlewares/auth.middleware.js';
+
 const router = Router();
 
-router.post('/', validate(createMovieSchema), movieController.create);
+// Public : Tout le monde peut voir
 router.get('/', movieController.findAll);
 router.get('/:id', movieController.findOne);
+
+// Privé : Il faut un token pour créer
+router.post('/', authenticate, validate(createMovieSchema), movieController.create);
+router.delete('/:id', authenticate, movieController.delete);
 
 export default router;

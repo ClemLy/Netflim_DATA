@@ -20,5 +20,15 @@ export const movieService = {
       throw error;
     }
     return movie;
+  },
+
+  async deleteMovie(id) {
+    const deletedCount = await movieRepository.delete(id);
+    if (deletedCount === 0) {
+      const error = new Error('Film non trouvé');
+      error.status = 404;
+      throw error;
+    }
+    return true;
   }
 };

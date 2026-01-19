@@ -15,5 +15,9 @@ export const movieRepository = {
     return await Movie.findByPk(id, {
       include: [{ model: Category, as: 'category' }]
     });
+  },
+
+  async delete(id) {
+    return await Movie.destroy({ where: { id } });
   }
 };
