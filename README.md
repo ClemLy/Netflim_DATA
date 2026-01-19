@@ -2,11 +2,6 @@
 
 Ce microservice gère l'intégralité du catalogue de vidéos (Movies, Series, Seasons, Episodes) ainsi que les métadonnées associées.
 
-## Membres du projet
-- Clémentin LY
-- Emi LIM
-- Clément BAS
-
 ## Architecture
 Le service suit une architecture en couches (**Layered Architecture**) pour assurer la maintenabilité :
 - **Routes** : Définition des points d'entrée API.
