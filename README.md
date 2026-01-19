@@ -1,5 +1,3 @@
-# Netflim_DATA
-Microservice de gestion du catalogue (Films, Séries, Épisodes) pour la plateforme Netflim. Construit avec Node.js, Express et Sequelize.
 # Netflim - Service DATA
 
 Ce microservice gère l'intégralité du catalogue de vidéos (Movies, Series, Seasons, Episodes) ainsi que les métadonnées associées.
