@@ -9,6 +9,7 @@ import { notFound } from './middlewares/not-found.middleware.js';
 // Routes
 import categoryRoutes from './routes/category.routes.js';
 import movieRoutes from './routes/movie.routes.js';
+import seriesRoutes from './routes/series.routes.js';
 
 const app = express();
 
@@ -18,9 +19,9 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.get('/', (req, res) => res.json({ message: "Netflim DATA Service API" }));
 app.use('/api/categories', categoryRoutes);
 app.use('/api/movies', movieRoutes);
+app.use('/api/series', seriesRoutes);
 
 // Gestion des erreurs
 app.use(notFound);
