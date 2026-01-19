@@ -1,0 +1,35 @@
+{
+  "name": "netflim_data",
+  "version": "1.0.0",
+  "description": "Ce microservice gère l'intégralité du catalogue de vidéos (Movies, Series, Seasons, Episodes) ainsi que les métadonnées associées.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClemLy/Netflim_DATA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClemLy/Netflim_DATA/issues"
+  },
+  "homepage": "https://github.com/ClemLy/Netflim_DATA#readme",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
+    "joi": "^18.0.2",
+    "mysql2": "^3.16.1",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
