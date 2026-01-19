@@ -20,7 +20,7 @@ Le service suit une architecture en couches (**Layered Architecture**) pour assu
 
 1. Cloner le dépôt :
    ```bash
-   git clone [https://github.com/ton-username/Netflim_DATA.git](https://github.com/ton-username/Netflim_DATA.git)
+   git clone [https://github.com/ClemLy/Netflim_DATA.git](https://github.com/ClemLy/Netflim_DATA.git)
 
 2. Installer les dépendances :
    ```bash
