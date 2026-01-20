@@ -1,4 +1,4 @@
-import { Series, Season, Episode, Category } from '../../models/index.js';
+import { Series, Season, Episode, Category, File } from '../../models/index.js';
 
 export const seriesRepository = {
   // Récupérer toutes les séries avec leur catégorie
@@ -17,10 +17,17 @@ export const seriesRepository = {
     return await Series.findByPk(id, {
       include: [
         { model: Category, as: 'category' },
+        { model: File, as: 'poster' },
         { 
           model: Season, 
           as: 'seasons',
-          include: [{ model: Episode, as: 'episodes' }] // On imbrique les épisodes dans les saisons
+          include: [
+            {
+              model: Episode,
+              as: 'episodes',
+              include: [{ model: File, as: 'video' }]
+            }
+          ] // On imbrique les épisodes dans les saisons
         }
       ],
       order: [

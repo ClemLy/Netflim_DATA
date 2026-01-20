@@ -1,11 +1,13 @@
-import { Episode } from '../../models/index.js';
+import { Episode, File } from '../../models/index.js';
 
 export const episodeRepository = {
   async findBySeason(seasonId) {
     return await Episode.findAll({ where: { season_id: seasonId }, order: [['number', 'ASC']] });
   },
   async findById(id) {
-    return await Episode.findByPk(id);
+    return await Episode.findByPk(id, {
+      include: [{ model: File, as: 'video' }]
+    });
   },
   async create(data) {
     return await Episode.create(data);

@@ -10,6 +10,7 @@ import { notFound } from './middlewares/not-found.middleware.js';
 import categoryRoutes from './routes/category.routes.js';
 import movieRoutes from './routes/movie.routes.js';
 import seriesRoutes from './routes/series.routes.js';
+import fileRoutes from './routes/file.routes.js';
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use('/api/categories', categoryRoutes);
 app.use('/api/movies', movieRoutes);
 app.use('/api/series', seriesRoutes);
+app.use('/api/files', fileRoutes);
 
 // Gestion des erreurs
 app.use(notFound);

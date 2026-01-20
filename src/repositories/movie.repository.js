@@ -1,4 +1,4 @@
-import { Movie, Category } from '../models/index.js';
+import { Movie, Category, File } from '../models/index.js';
 
 export const movieRepository = {
   async findAll() {
@@ -13,7 +13,11 @@ export const movieRepository = {
 
   async findById(id) {
     return await Movie.findByPk(id, {
-      include: [{ model: Category, as: 'category' }]
+      include: [
+        { model: Category, as: 'category' },
+        { model: File, as: 'poster' },
+        { model: File, as: 'video' }
+      ]
     });
   },
 
