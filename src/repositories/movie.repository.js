@@ -17,6 +17,10 @@ export const movieRepository = {
     });
   },
 
+  async update(id, data) {
+    return await Movie.update(data, { where: { id } });
+  },
+
   async delete(id) {
     return await Movie.destroy({ where: { id } });
   }

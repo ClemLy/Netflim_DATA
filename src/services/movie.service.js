@@ -22,6 +22,16 @@ export const movieService = {
     return movie;
   },
 
+  async updateMovie(id, data) {
+    const movie = await movieRepository.findById(id);
+    if (!movie) {
+      const error = new Error('Film non trouvé');
+      error.status = 404;
+      throw error;
+    }
+    return await movieRepository.update(id, data);
+  },
+
   async deleteMovie(id) {
     const deletedCount = await movieRepository.delete(id);
     if (deletedCount === 0) {

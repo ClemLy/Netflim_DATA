@@ -31,6 +31,16 @@ export const movieController = {
     }
   },
 
+  // PUT /movies/:id
+  update: async (req, res, next) => {
+    try {
+      await movieService.updateMovie(req.params.id, req.body);
+      res.status(200).json({ message: "Film mis à jour avec succès" });
+    } catch (error) {
+      next(error);
+    }
+  },
+
   // DELETE /movies/:id
   delete: async (req, res, next) => {
     try {
