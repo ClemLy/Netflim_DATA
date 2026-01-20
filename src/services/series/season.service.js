@@ -8,5 +8,17 @@ export const seasonService = {
 
     // On injecte le series_id dans les données de la saison
     return await seasonRepository.create({ ...seasonData, series_id: seriesId });
+  },
+
+  async updateSeason(id, data) {
+    const season = await seasonRepository.findById(id);
+    if (!season) throw Object.assign(new Error('Saison non trouvée'), { status: 404 });
+    return await seasonRepository.update(id, data);
+  },
+
+  async deleteSeason(id) {
+    const season = await seasonRepository.findById(id);
+    if (!season) throw Object.assign(new Error('Saison non trouvée'), { status: 404 });
+    return await seasonRepository.delete(id);
   }
 };

@@ -17,5 +17,17 @@ export const seriesService = {
 
   async createSeries(data) {
     return await seriesRepository.create(data);
+  },
+  
+  async updateSeries(id, data) {
+    const series = await seriesRepository.findById(id);
+    if (!series) throw Object.assign(new Error('Série non trouvée'), { status: 404 });
+    return await seriesRepository.update(id, data);
+  },
+
+  async deleteSeries(id) {
+    const series = await seriesRepository.findById(id);
+    if (!series) throw Object.assign(new Error('Série non trouvée'), { status: 404 });
+    return await seriesRepository.delete(id);
   }
 };

@@ -8,6 +8,10 @@ export const seriesRepository = {
     });
   },
 
+  async findById(id) {
+    return await Series.findByPk(id);
+  },
+
   // Récupérer UNE série avec TOUTES les saisons et TOUS les épisodes
   async findFullDetails(id) {
     return await Series.findByPk(id, {
@@ -28,5 +32,11 @@ export const seriesRepository = {
 
   async create(data) {
     return await Series.create(data);
+  },
+  async update(id, data) {
+    return await Series.update(data, { where: { id } });
+  },
+  async delete(id) {
+    return await Series.destroy({ where: { id } });
   }
 };
