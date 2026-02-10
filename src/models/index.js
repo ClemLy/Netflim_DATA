@@ -31,14 +31,18 @@ Episode.belongsTo(Season, { foreignKey: 'season_id' });
 
 
 // --- Relations FICHIERS ---
-// 4. Fichiers <-> Films
+// 4. Fichiers <-> Catégories
+File.belongsTo(Category, { foreignKey: 'categoryId', as: 'category' });
+Category.hasMany(File, { foreignKey: 'categoryId', as: 'files' });
+
+// 5. Fichiers <-> Films
 Movie.belongsTo(File, { foreignKey: 'poster_id', as: 'poster' });
 Movie.belongsTo(File, { foreignKey: 'video_id', as: 'video' });
 
-// 5. Fichiers <-> Séries
+// 6. Fichiers <-> Séries
 Series.belongsTo(File, { foreignKey: 'poster_id', as: 'poster' });
 
-// 6. Fichiers <-> Épisodes
+// 7. Fichiers <-> Épisodes
 Episode.belongsTo(File, { foreignKey: 'video_id', as: 'video' });
 
 export { Category, Movie, Series, Season, Episode, File };

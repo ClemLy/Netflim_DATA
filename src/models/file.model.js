@@ -18,5 +18,13 @@ export const File = sequelize.define('File', {
   ownerId: {
     type: DataTypes.STRING, // ID de l'utilisateur fourni par le JWT lors de l'upload
     allowNull: true
+  },
+  categoryId: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    references: {
+      model: 'categories',
+      key: 'id'
+    }
   }
 });
