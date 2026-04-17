@@ -25,7 +25,7 @@ export const categoryController = {
   delete: async (req, res, next) => {
     try {
       await categoryService.deleteCategory(req.params.id);
-      res.status(204).send();
+      res.status(200).json({ message: 'Catégorie supprimée avec succès' });
     } catch (e) { next(e); }
   }
 };

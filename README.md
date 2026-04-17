@@ -659,6 +659,13 @@ Movie
 
 ---
 
+## Notes importantes
+
+- Le `JWT_SECRET` doit être **identique** dans AUTH, DATA, FILE et SMTP
+- `GET /api/series` et `GET /api/series/:id` retournent les saisons et épisodes imbriqués
+- Les routes DELETE retournent un `200` avec un message de confirmation
+- `video_id` est optionnel à la création d'un épisode — associer via `PUT /api/series/episodes/:id`
+
 ## Support et contact
 
 **GitHub**: https://github.com/ClemLy/Netflim_DATA  

@@ -20,7 +20,7 @@ export const episodeController = {
   delete: async (req, res, next) => {
     try {
       await episodeService.deleteEpisode(req.params.episodeId);
-      res.status(204).send();
+      res.status(200).json({ message: 'Épisode supprimé avec succès' });
     } catch (e) { next(e); }
   }
 };

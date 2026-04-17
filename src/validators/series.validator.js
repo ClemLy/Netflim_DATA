@@ -33,7 +33,7 @@ export const createEpisodeSchema = Joi.object({
   title: Joi.string().min(1).max(255).required(),
   number: Joi.number().integer().positive().required(),
   duration: Joi.number().integer().positive(),
-  video_id: Joi.string().uuid().required()
+  video_id: Joi.string().uuid().allow(null).optional()
 });
 
 export const updateEpisodeSchema = Joi.object({

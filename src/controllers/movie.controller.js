@@ -45,7 +45,7 @@ export const movieController = {
   delete: async (req, res, next) => {
     try {
       await movieService.deleteMovie(req.params.id);
-      return res.status(204).send(); // 204 No Content : succès sans corps de réponse
+      return res.status(200).json({ message: 'Film supprimé avec succès' });
     } catch (error) {
       next(error);
     }

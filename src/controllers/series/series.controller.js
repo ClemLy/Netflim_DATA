@@ -32,7 +32,7 @@ export const seriesController = {
   delete: async (req, res, next) => {
     try {
       await seriesService.deleteSeries(req.params.id);
-      res.status(204).send();
+      res.status(200).json({ message: 'Série supprimée avec succès' });
     } catch (e) { next(e); }
   }
 };

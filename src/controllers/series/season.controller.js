@@ -20,7 +20,7 @@ export const seasonController = {
   delete: async (req, res, next) => {
     try {
       await seasonService.deleteSeason(req.params.seasonId);
-      res.status(204).send();
+      res.status(200).json({ message: 'Saison supprimée avec succès' });
     } catch (e) { next(e); }
   }
 };

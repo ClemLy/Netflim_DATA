@@ -12,7 +12,7 @@ async function start() {
     console.log('✅ Connexion MySQL établie.');
 
     // Synchronisation des modèles
-    // await sequelize.sync({ alter: true });
+    await sequelize.sync({ alter: true });
 
     app.listen(PORT, () => {
       console.log(`🚀 Service DATA lancé sur http://localhost:${PORT}`);

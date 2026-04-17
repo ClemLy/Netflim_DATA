@@ -4,7 +4,25 @@ export const seriesRepository = {
   // Récupérer toutes les séries avec leur catégorie
   async findAll() {
     return await Series.findAll({
-      include: [{ model: Category, as: 'category' }]
+      include: [
+        { model: Category, as: 'category' },
+        { model: File, as: 'poster' },
+        {
+          model: Season,
+          as: 'seasons',
+          include: [
+            {
+              model: Episode,
+              as: 'episodes',
+              include: [{ model: File, as: 'video' }]
+            }
+          ]
+        }
+      ],
+      order: [
+        [{ model: Season, as: 'seasons' }, 'number', 'ASC'],
+        [{ model: Season, as: 'seasons' }, { model: Episode, as: 'episodes' }, 'number', 'ASC']
+      ]
     });
   },
 
